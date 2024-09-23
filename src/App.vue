@@ -1,5 +1,19 @@
-<script setup></script>
+<script setup>
+import NavBar from "./components/NavBar.vue";
+import Banner from "./components/Banner.vue";
+import AddEmployeeForm from "./components/AddEmployeeForm.vue";
+import EmployeesList from "./components/EmployeesList.vue";
+</script>
 
-<template>App</template>
+<template>
+  <header>
+    <NavBar />
+  </header>
+  <main>
+    <Banner />
 
-<style scoped></style>
+    <AddEmployeeForm />
+
+    <EmployeesList />
+  </main>
+</template>
