@@ -15,5 +15,14 @@ const props = defineProps({
 
 <template>
   <Alert v-if="employees.length === 0" :message="message" />
-  <EmployeeCard v-else />
+  <ul v-else>
+    <EmployeeCard
+      v-for="employee in employees"
+      :image-url="employee.imageUrl"
+      :first-name="employee.firstName"
+      :last-name="employee.lastName"
+      :bio="employee.bio"
+      :id="employee.id"
+    />
+  </ul>
 </template>
