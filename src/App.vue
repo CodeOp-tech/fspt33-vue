@@ -28,6 +28,10 @@ const employees = ref([
 const handleNavItemClick = (value) => {
   isManager.value = value;
 };
+
+const handleFormSubmit = (formValues) => {
+  employees.value.push(formValues);
+};
 </script>
 
 <template>
@@ -35,7 +39,11 @@ const handleNavItemClick = (value) => {
     <NavBar @nav-item-click="handleNavItemClick" :is-manager="isManager" />
   </header>
   <main>
-    <ManagerView v-if="isManager" :employees="employees" />
+    <ManagerView
+      v-if="isManager"
+      :employees="employees"
+      @add-employee="handleFormSubmit"
+    />
     <EmployeeView v-else :employees="employees" />
   </main>
 </template>
