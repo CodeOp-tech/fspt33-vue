@@ -1,8 +1,7 @@
 <script setup>
 import NavBar from "./components/NavBar.vue";
-import Banner from "./components/Banner.vue";
-import AddEmployeeForm from "./components/AddEmployeeForm.vue";
-import EmployeesList from "./components/EmployeesList.vue";
+import ManagerView from "./components/ManagerView.vue";
+import EmployeeView from "./components/EmployeeView.vue";
 </script>
 
 <template>
@@ -10,10 +9,7 @@ import EmployeesList from "./components/EmployeesList.vue";
     <NavBar />
   </header>
   <main>
-    <Banner />
-
-    <AddEmployeeForm />
-
-    <EmployeesList />
+    <ManagerView />
+    <!-- <EmployeeView /> -->
   </main>
 </template>
