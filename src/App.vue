@@ -1,15 +1,22 @@
 <script setup>
+import { ref } from "vue";
 import NavBar from "./components/NavBar.vue";
 import ManagerView from "./pages/ManagerView.vue";
 import EmployeeView from "./pages/EmployeeView.vue";
+
+const isManager = ref(true);
+
+const handleNavItemClick = (value) => {
+  isManager.value = value;
+};
 </script>
 
 <template>
   <header>
-    <NavBar />
+    <NavBar @nav-item-click="handleNavItemClick" :is-manager="isManager" />
   </header>
   <main>
-    <ManagerView />
-    <!-- <EmployeeView /> -->
+    <ManagerView v-if="isManager" />
+    <EmployeeView v-else />
   </main>
 </template>
