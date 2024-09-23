@@ -1,7 +1,7 @@
 <script setup>
 import NavBar from "./components/NavBar.vue";
-import ManagerView from "./components/ManagerView.vue";
-import EmployeeView from "./components/EmployeeView.vue";
+import ManagerView from "./pages/ManagerView.vue";
+import EmployeeView from "./pages/EmployeeView.vue";
 </script>
 
 <template>
