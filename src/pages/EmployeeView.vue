@@ -4,7 +4,7 @@ import EmployeesList from "../components/EmployeesList.vue";
 </script>
 
 <template>
-  <Banner />
+  <Banner title="Employee Portal" sub-title="Update employee details" />
 
   <EmployeesList />
 </template>

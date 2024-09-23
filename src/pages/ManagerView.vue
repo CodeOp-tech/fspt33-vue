@@ -5,7 +5,7 @@ import EmployeesList from "../components/EmployeesList.vue";
 </script>
 
 <template>
-  <Banner />
+  <Banner title="Manager Portal" sub-title="Add and view employees" />
 
   <AddEmployeeForm />
 
