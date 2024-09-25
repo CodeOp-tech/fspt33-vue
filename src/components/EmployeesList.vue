@@ -10,7 +10,18 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  isManager: {
+    type: Boolean,
+    required: true,
+  },
 });
+
+const emit = defineEmits(["setEmployeeOfMonth"]);
+
+const handleClick = (employee) => {
+  // re-emit
+  emit("setEmployeeOfMonth", employee);
+};
 </script>
 
 <template>
@@ -23,6 +34,8 @@ const props = defineProps({
       :last-name="employee.lastName"
       :bio="employee.bio"
       :id="employee.id"
+      :isManager="isManager"
+      @set-employee-of-month="handleClick"
     />
   </ul>
 </template>

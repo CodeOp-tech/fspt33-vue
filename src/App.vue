@@ -24,6 +24,7 @@ const employees = ref([
     id: uuid4(),
   },
 ]);
+const employeeOfMonth = ref();
 
 const handleNavItemClick = (value) => {
   isManager.value = value;
@@ -31,6 +32,10 @@ const handleNavItemClick = (value) => {
 
 const handleFormSubmit = (formValues) => {
   employees.value = [formValues, ...employees.value];
+};
+
+const handleClick = (employee) => {
+  employeeOfMonth.value = employee;
 };
 </script>
 
@@ -43,6 +48,9 @@ const handleFormSubmit = (formValues) => {
       v-if="isManager"
       :employees="employees"
       @add-employee="handleFormSubmit"
+      :isManager="isManager"
+      @set-employee-of-month="handleClick"
+      :employeeOfMonth="employeeOfMonth"
     />
     <EmployeeView v-else :employees="employees" />
   </main>

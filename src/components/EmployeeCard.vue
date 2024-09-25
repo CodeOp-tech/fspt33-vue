@@ -20,7 +20,26 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  isManager: {
+    type: Boolean,
+    required: true,
+  },
 });
+
+const emit = defineEmits(["setEmployeeOfMonth"]);
+
+const handleClick = () => {
+  const employeeObject = {
+    imageUrl: props.imageUrl,
+    firstName: props.firstName,
+    lastName: props.lastName,
+    bio: props.bio,
+    id: props.id,
+  };
+
+  // emit action with employeeObject
+  emit("setEmployeeOfMonth", employeeObject);
+};
 </script>
 
 <template>
@@ -39,6 +58,14 @@ const props = defineProps({
           <p class="card-text">
             {{ bio }}
           </p>
+          <button
+            v-if="isManager"
+            type="button"
+            class="btn btn-outline-success"
+            @click="handleClick"
+          >
+            Employee of the Month
+          </button>
         </div>
       </div>
     </div>
