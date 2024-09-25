@@ -8,21 +8,26 @@ const firstName = ref("");
 const lastName = ref("");
 const imageUrl = ref("");
 const bio = ref("");
+
+const handleSubmit = () => {
+  emit("addEmployee", {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    imageUrl: imageUrl.value,
+    bio: bio.value,
+    id: uuid4(),
+  });
+
+  // clear form values
+  firstName.value = "";
+  lastName.value = "";
+  imageUrl.value = "";
+  bio.value = "";
+};
 </script>
 
 <template>
-  <form
-    class="mb-3"
-    @submit.prevent="
-      emit('addEmployee', {
-        firstName,
-        lastName,
-        imageUrl,
-        bio,
-        id: uuid4(),
-      })
-    "
-  >
+  <form class="mb-3" @submit.prevent="handleSubmit">
     <div class="mb-3">
       <label for="firstName" class="form-label">First Name</label>
       <input class="form-control" id="firstName" v-model="firstName" />

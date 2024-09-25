@@ -30,7 +30,7 @@ const handleNavItemClick = (value) => {
 };
 
 const handleFormSubmit = (formValues) => {
-  employees.value.push(formValues);
+  employees.value = [formValues, ...employees.value];
 };
 </script>
 
